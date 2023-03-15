@@ -42,7 +42,7 @@
   </head>
   <body>
     <div class="video-container">
-      <video id="video-player" src="" autoplay muted loop poster="video"></video>
+      <iframe id="video-player" width="640" height="360" src="https://www.youtube.com/embed/VIDEO_ID_HERE?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID_HERE" frameborder="0" allow="autoplay"></iframe>
       <a href="index.html" class="back-button">HOME</a>
     </div>
 
@@ -54,19 +54,17 @@
 
       // 쿼리 파라미터에 따라 동영상 소스를 변경합니다.
       if (videoName == "Lunafall") {
-        changeVideoSource("video/lunfall.mp4");
+        changeVideoSource("PZ9gpWz3WNY");
       } else if (videoName == "Sinbi") {
-        changeVideoSource("video/sinbi.mp4");
+        changeVideoSource("xUYPKVeUVIY");
       } else if (videoName == "Dpirang") {
-        changeVideoSource("video/dpirang.mp4");
+        changeVideoSource("FwfNEN-xnJE&t=3s");
       }
 
       // 동영상 소스를 변경하는 함수를 추가합니다.
-      function changeVideoSource(source) {
+      function changeVideoSource(videoId) {
         var videoPlayer = document.getElementById("video-player");
-        videoPlayer.src = source;
-        videoPlayer.load();
-        videoPlayer.play();
+        videoPlayer.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&mute=1&loop=1&playlist=" + videoId;
       }
     </script>
   </body>
