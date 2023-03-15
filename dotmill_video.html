@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .video-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black;
+      }
+      video {
+        width: 100%;
+      }
+      .back-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-family: "Nanum Gothic";
+        font-weight: bold;
+        background-color: gray;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        margin: 0 10px;
+        transition: background-color 0.4s ease;
+      }
+      .back-button:hover,
+      .back-button:focus {
+        background-color: #333;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="video-player" src="" autoplay muted loop poster="video"></video>
+      <a href="index.html" class="back-button">HOME</a>
+    </div>
+
+    <script>
+      // URL 쿼리 파라미터에서 video 값을 가져옵니다.
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var videoName = urlParams.get('video');
+
+      // 쿼리 파라미터에 따라 동영상 소스를 변경합니다.
+      if (videoName == "Lunafall") {
+        changeVideoSource("video/lunfall.mp4");
+      } else if (videoName == "Sinbi") {
+        changeVideoSource("video/sinbi.mp4");
+      } else if (videoName == "Dpirang") {
+        changeVideoSource("video/dpirang.mp4");
+      }
+
+      // 동영상 소스를 변경하는 함수를 추가합니다.
+      function changeVideoSource(source) {
+        var videoPlayer = document.getElementById("video-player");
+        videoPlayer.src = source;
+        videoPlayer.load();
+        videoPlayer.play();
+      }
+    </script>
+  </body>
+</html>

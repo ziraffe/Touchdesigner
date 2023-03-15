@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .video-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        filter: brightness(30%);
+      }
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 1;
+       
+      }
+      .center p {
+        margin-bottom: 10px;
+      }
+      .center img {
+        margin-top: 5px;
+        width: 20%;
+        border-radius: 10px;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .button-container button {
+        font-family: "Nanum Gothic";
+        font-weight: bold;
+        background-color: gray;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 20px;
+        margin: 0 50px;
+        transition: background-color 0.4s ease;
+      }
+      .button-container button:hover,
+      .button-container button:focus {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="video/showreel.mp4" type="video/mp4">
+      </video>
+      <div class="center">
+        <img src="image/logo1.PNG" alt="이미지 설명">
+        <h1>Test Touchdesigner Interaction</h1>
+        <p>Press the button below to change the image.</p>
+        <div class="button-container">
+          <button id="button1">Lunafall</button>
+          <button id="button2">Sinbi</button>
+          <button id="button3">Dpirang</button>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // 버튼 클릭 이벤트를 추가합니다.
+      document.getElementById("button1").addEventListener("click", function() {
+        window.location.href = "dotmill_video.html?video=Lunafall";
+      });
+      document.getElementById("button2").addEventListener("click", function() {
+        window.location.href = "dotmill_video.html?video=Sinbi";
+      });
+      document.getElementById("button3").addEventListener("click", function() {
+        window.location.href = "dotmill_video.html?video=Dpirang";
+      });
+    </script>
+  </body>
+</html>
